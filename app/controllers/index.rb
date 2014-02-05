@@ -78,13 +78,13 @@ end
 post '/post_vote/:post_id' do
   PostVote.create(post_id: params[:post_id], vote: params[:vote], user_id: session[:user_id])
   post = Post.find(params[:post_id])
-  params[:vote] == "true" ? {votes: post.up_votes}.to_json : {votes: post.down_votes}.to_json
+  {up_votes: post.up_votes, down_votes: post.down_votes}.to_json
 end
 
 post '/comment_vote/:comment_id' do
   CommentVote.create(comment_id: params[:comment_id], vote: params[:vote], user_id: session[:user_id])
   comment = Comment.find(params[:comment_id])
-  params[:vote] == "true" ? {votes: comment.up_votes}.to_json : {votes: comment.down_votes}.to_json
+  {up_votes: comment.up_votes, down_votes: comment.down_votes}.to_json
 end
 
 

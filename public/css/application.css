@@ -47,3 +47,9 @@ th {
   margin-right: 20px;
   margin-top: 12px
 }
+.up {
+  background-color: green;
+}
+.down {
+  background-color: red;
+}

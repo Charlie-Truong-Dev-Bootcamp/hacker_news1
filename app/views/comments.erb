@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-    <h3>Comment!</h3>
+    <h3><a href="<%=@post.url%>"><%=@post.title%></a></h3>
     <form method = "post" action="/comments/post/<%=@post.id%>">
       <textarea cols="50" rows="5" name="content" placeholder="Comment"></textarea>
       <input type="submit" value="Submit Comment">
@@ -8,7 +8,8 @@
   </div>
   <ol>
   <% @post.comments.sort.each do |comment| %>
-      <li><a href="/profile/<%=comment.user.id%>"><%=comment.user.username%></a> <%=comment.days_ago%>
+      <li><button type="button" class="up" value="<%=comment.id%>"><%=comment.up_votes%></button><button type="button" class="down" value="<%=comment.id%>"><%=comment.down_votes%></button>
+        <a href="/profile/<%=comment.user.id%>"><%=comment.user.username%></a> <%=comment.days_ago%>
         <ul>
           <li><%=comment.content%></li>
         </ul>

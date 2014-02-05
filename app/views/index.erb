@@ -1,7 +1,7 @@
 <div class="container">
   <ol>
   <% @posts.each do |post| %>
-      <li><a href="<%=post.url%>"><%=post.title%><a>
+      <li><button type="button" class="up" value="<%=post.id%>"><%=post.up_votes%></button><button type="button" class="down" value="<%=post.id%>"><%=post.down_votes%></button><a href="<%=post.url%>"><%=post.title%><a>
         <ul>
           <li>From <%=post.days_ago%></li>
           <li>By: <a href="/profile/<%=post.user.id%>"><%=post.user.username%></a></li>

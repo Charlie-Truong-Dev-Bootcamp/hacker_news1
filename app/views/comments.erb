@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <h3>Comment!</h3>
+    <form method = "post" action="/comments/post/<%=@post.id%>">
+      <textarea cols="50" rows="5" name="content" placeholder="Comment"></textarea>
+      <input type="submit" value="Submit Comment">
+    </form>
+  </div>
+  <ol>
+  <% @post.comments.sort.each do |comment| %>
+      <li><a href="/profile/<%=comment.user.id%>"><%=comment.user.username%></a> <%=comment.days_ago%>
+        <ul>
+          <li><%=comment.content%></li>
+        </ul>
+      </li>
+  <% end %>
+  </ol>
+</div>

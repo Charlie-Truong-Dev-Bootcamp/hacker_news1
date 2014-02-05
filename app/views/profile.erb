@@ -1,0 +1,30 @@
+<div class="container">
+  <ul>
+    <li>Username: <%=@user.username%></li>
+    <li>Created: <%=@user.days_ago%></li>
+    <li>
+      <% if @user.id == session[:user_id] %>
+        <form method = "post" action="/profile/<%=@user.id%>">
+          <ul>
+            <li>
+              <label for ="about">About</label>
+              <textarea cols="50" rows="10" name="about"><%=@user.about%></textarea>
+            </li>
+            <li>
+              <label for ="email">Email</label>
+              <input type="text" name="email" value="<%=@user.email%>">
+            </li>
+            <li>
+              <input type="submit" value = "update">
+            </li>
+          </ul>
+        </form>
+      <% else %>
+        <p><%=@user.about%></p>
+        <p><%=@user.email%></p>
+      <% end %>
+    </li>
+    <li><a href="/submissions/<%=@user.id%>">Submissions</a></li>
+    <li><a href="/comments/<%=@user.id%>">Comments</a></li>
+  </ul>
+</div>

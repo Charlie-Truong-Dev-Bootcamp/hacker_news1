@@ -1,0 +1,12 @@
+<div class="container">
+  <h2><%=@user.username%>'s Comments</h2>
+  <ol>
+  <% @comments.each do |comment| %>
+      <li><%=comment.days_ago%> <a href="<%=comment.post.url%>"><%=comment.post.title%></a>
+        <ul>
+          <li><%=comment.content%></li>
+        </ul>
+      </li>
+  <% end %>
+  </ol>
+</div>

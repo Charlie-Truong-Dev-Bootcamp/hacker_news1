@@ -1,0 +1,26 @@
+
+<div class="container">
+  <h1>Amazing Hacker News</h1>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <% if session[:user_id] != nil %>
+      <li><a href="/create">Create</a></li>
+      <li><a href="/profile/<%=session[:user_id]%>">Profile</a></li>
+    <% end %>
+  </ul>
+
+
+  <% if session[:user_id] == nil %>
+    <div>
+      <form method="get" action="/sign-in">
+        <input type="submit" value="Log-in/Sign-up">
+      </form>
+    </div>
+  <% else %>
+    <div>
+      <form method="post" action="/sign-out">
+        <input type="submit" value="Sign-out">
+      </form>
+    </div>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 
-<div class="container">
+<div class="header">
   <h1>Amazing Hacker News</h1>
-  <ul>
+  <ul class="nav">
     <li><a href="/">Home</a></li>
     <% if session[:user_id] != nil %>
       <li><a href="/create">Create</a></li>
@@ -9,18 +9,20 @@
     <% end %>
   </ul>
 
-
-  <% if session[:user_id] == nil %>
-    <div>
-      <form method="get" action="/sign-in">
-        <input type="submit" value="Log-in/Sign-up">
-      </form>
-    </div>
-  <% else %>
-    <div>
-      <form method="post" action="/sign-out">
-        <input type="submit" value="Sign-out">
-      </form>
-    </div>
-  <% end %>
+  <div class="sign-in">
+    <% if session[:user_id] == nil %>
+      <div>
+        <form method="get" action="/sign-in">
+          <input type="submit" value="Log-in/Sign-up">
+        </form>
+      </div>
+    <% else %>
+      <div>
+        <form method="post" action="/sign-out">
+          <input type="submit" value="Sign-out">
+        </form>
+      </div>
+    <% end %>
+  </div>
 </div>
+
